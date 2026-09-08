@@ -1,0 +1,4 @@
+'use client';
+import {useId} from 'react';
+import {Select,SelectTrigger,SelectValue,SelectContent,SelectItem} from '@/components/ui/select';
+export function Choice({label,value,onChange,options,placeholder='Tümü',name}:{label:string;value:string;onChange:(s:string)=>void;options:(string|{label:string;value:string})[];placeholder?:string;name?:string}){const id=useId();const list=options.map(o=>typeof o==='string'?{label:o,value:o}:o);return <div className="field"><label id={id}>{label}</label><Select name={name} value={value} onValueChange={v=>onChange(v??'')}><SelectTrigger aria-labelledby={id} className="choice-trigger"><SelectValue>{list.find(x=>x.value===value)?.label||placeholder}</SelectValue></SelectTrigger><SelectContent className="choice-popup"><SelectItem value="">{placeholder}</SelectItem>{list.map(o=><SelectItem value={o.value} key={o.value}>{o.label}</SelectItem>)}</SelectContent></Select></div>}

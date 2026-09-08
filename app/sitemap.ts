@@ -1,0 +1,2 @@
+import {properties,regions,advisors,blogPosts} from '@/lib/data';
+export default function sitemap(){const origin='https://mavi-gayrimenkul-bolu.oner334480.chatgpt.site';return ['','satilik','kiralik','projeler','bolgeler','danismanlar','hakkimizda','iletisim','degerleme','portfoy-gonder','yatirim-rehberi',...properties.map(p=>`ilan/${p.slug}`),...regions.map(r=>`bolgeler/${r.slug}`),...advisors.map(a=>`danismanlar/${a.slug}`),...blogPosts.map(b=>`yatirim-rehberi/${b.slug}`)].map(path=>({url:`${origin}/${path}`}))}
